@@ -1,13 +1,7 @@
 const fs = require('fs');
 
-function lerArquivo(caminhoDoArquivo) {
-  return new promise(function (resolve, reject) {
-    fs.readFile(caminhoDoArquivo, 'utf8', (err, data) => {
-      if (err) reject(err);
-
-      resolve(data);
-    });
-  });
+function soma(a, b) {
+  return a + b;
 }
-module.exports = { lerArquivo };
+module.exports = { soma };
 
