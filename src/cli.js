@@ -1,17 +1,17 @@
 #!/usr/bin/env node
-console.log('Oi, CLI!');
-
 const chalk = require('chalk');
-const { lerArquivo } = require('./index.js');
+const { extractLinks } = require('./index.js');
 
-console.log(chalk.blue('Hello world!'));
+// const filePath = process.argv[2];
 
 const inputs = process.argv;
-console.log(inputs);
+const filePath = inputs[2];
+console.log('caminho do arquivo', inputs);
 
-const path = inputs[2];
-
-lerArquivo('./README.md')
-.then((conteudoArquivo) => {
-  console.log(chalk.bgYellow(conteudoArquivo))
-});
+extractLinks('./README.md')
+  .then((linkResults) => {
+    console.log(chalk.bgYellow(linkResults));
+  })
+  .catch((error) => {
+    console.error('Ocorreu um erro ao extrair links:', error);
+  });
