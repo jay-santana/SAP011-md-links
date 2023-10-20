@@ -10,4 +10,3 @@ function lerArquivo(caminhoDoArquivo) {
   });
 }
 module.exports = { lerArquivo };
-
