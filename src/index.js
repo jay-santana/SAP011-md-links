@@ -1,19 +1,19 @@
 const fs = require('fs');
+// const { extractLinks } = require('./index.js');
 
-// Função para extrair links
-function extractLinks(inputs) {
+
+function extractLinks(data, filePath) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
-  return fs.promises.readFile(inputs, 'utf8')
-    .then((data) => {
-      const getFileLinks = [...data.matchAll(regex)];
-      const linkResults = getFileLinks.map((link) => ({
-        text: link[1],
-        url: link[2],
-        file: inputs,
-      }));
-      return linkResults;
-    });
-};
+  const getFileLinks = [...data.matchAll(regex)];
+  const linkResults = getFileLinks.map((link) => ({
+    text: link[1],
+    url: link[2],
+    file: filePath,
+  }));
+  return linkResults;
+}
+
+
 
 module.exports = { extractLinks };
 
