@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
 const { mdLinks } = require('./md-links.js');
-const { validateLinks } = require('./index.js');
-
 
 const filePath = process.argv[2];
 console.log('caminho do arquivo', process.argv);
@@ -12,33 +10,31 @@ const options = {
   stats: process.argv.includes('--stats'),
 }
 
-mdLinks(filePath)
+mdLinks(filePath, options)
   .then((linkResults) => {
-    console.log((showResults(linkResults)));
-  })
-  .catch((error) => {
-    console.error('Ocorreu um erro ao extrair links:', error);
-  });
-
-mdLinks(filePath, { validate: true })
-  .then((linkResults) => {
-    validateLinks(linkResults).then((linksResultsValidate) => {
-      linksResultsValidate.map((link) => {
+    if (options.validate === true) {
+      linkResults.map((link) => {
         const status = link.valid ? 'Válido' : 'Inválido';
-        console.log(`\u2022 ${chalk.magenta('Texto do link:')} ${link.text} || ${chalk.green('Status:')} ${status}`);
+        console.log(`\u2022 ${chalk.magenta('Texto do link:')} ${chalk.cyan(link.text)} || ${chalk.magenta('Status:')} ${chalk.green(status)}`);
       });
-    });
+    } else {
+      console.log((showResults(linkResults)));
+    }
   })
   .catch((error) => {
-    console.error('Ocorreu um erro ao validar links:', error);
+    if (options.validate === true) {
+      console.error('Ocorreu um erro ao validar links:', error);
+    } else {
+      console.error('Ocorreu um erro ao extrair links:', error)
+    }
   });
 
 // Função para mostrar resultados (texto e links)
 function showResults(linkResults) {
   const results = linkResults.map((link) =>
-    `\u2022 ${chalk.magenta('Texto do link:')} ${link.text} 
-  ${chalk.green('href:')} ${link.url}
-  ${chalk.yellow('Arquivo')} ${link.file} `);
+    `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)} 
+  ${chalk.magenta('href:')} ${chalk.cyan(link.url)}
+  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)} `);
   return results.join('\n');
 }
 

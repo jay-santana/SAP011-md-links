@@ -17,22 +17,20 @@ function extractLinks(data, filePath) {
 function validateLinks(getFileLinks) {
   return Promise.all(
     getFileLinks.map((link) => {
+      // console.log(link);
       return fetch(link.url)
         .then((response) => ({
-          url: link.url,
+          ...link,
           valid: response.status >= 200 && response.status < 400
         }))
-        .catch((error) => ({
-          url: link.url,
+        .catch(() => ({
+          ...link,
           valid: false
-        }))
-    }
-    )
+        }));
+    },
+    ),
   );
-}
-
-
-
+};
 
 module.exports = { extractLinks, validateLinks };
 

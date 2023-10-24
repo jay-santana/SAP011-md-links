@@ -1,19 +1,9 @@
-<!-- O executável da nossa aplicação deve poder ser executado da seguinte maneira, através do terminal:
+Links pata teste:
 
-md-links <path-to-file> [options]
-
-Por exemplo:
-
-$ md-links ./some/example.md
-./some/example.md http://algo.com/2/3/ Link de algo
-./some/example.md https://outra-coisa-.net/algum-doc.html algum doc
-./some/example.md http://google.com/ Google -->
-
-<!-- Teste de uso:
-const links = [
-{ text: 'Google', url: 'https://www.google.com' },
-{ text: 'OpenAI', url: 'https://www.openai.com' },
-{ text: 'Invalid Link', url: 'https://www.thisisnotarealurl1234567890.com' }
-];
-
-validateLinks(links); -->
+[MD-Links](https://github.com/Laboratoria/SAP011-md-links)
+[Google](https://www.google.com)
+[Fetch](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Basic_concepts)
+[Página de Teste](https://www.thisisnotarealurl1234567890.com)
+[Fetch](https://developer.mozilla.org/pt-BR/docs/Web/API/Fetch_API/Basic_concepts)
+[GitHub](https://github.com/clarice-dantas)
+[Node.js](https://nodejs.org/pt-br/about)
