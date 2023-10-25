@@ -30,7 +30,11 @@ function validateLinks(getFileLinks) {
   );
 }
 
-module.exports = { extractLinks, validateLinks };
+function statsLinks() {
+
+}
+
+module.exports = { extractLinks, validateLinks, statsLinks };
 
 // Leitura do aquivo
 // Extração dos links e textos

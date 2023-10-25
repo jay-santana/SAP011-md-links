@@ -2,18 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const { extractLinks, validateLinks } = require('./index.js');
 
-// Função para ler links
-// function mdLinks(filePath, options) {
-//   return fs.promises.readFile(filePath, 'utf8')
-//     .then((data) => {
-//       const links = extractLinks(data, filePath);
-//       if (options.validate === true) {
-//         return validateLinks(links);
-//       };
-//       return links;
-//     });
-// };
-
 // Função para tratar links
 function mdLinks(filePath, options) {
   const fileExtension = path.extname(filePath);
@@ -39,3 +27,15 @@ function mdLinks(filePath, options) {
 // condicional para validate e stats
 
 module.exports = { mdLinks };
+
+// Função para ler links
+// function mdLinks(filePath, options) {
+//   return fs.promises.readFile(filePath, 'utf8')
+//     .then((data) => {
+//       const links = extractLinks(data, filePath);
+//       if (options.validate === true) {
+//         return validateLinks(links);
+//       };
+//       return links;
+//     });
+// };
