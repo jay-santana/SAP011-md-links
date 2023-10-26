@@ -32,21 +32,25 @@ function showLinkValidation(linkResults) {
 }
 
 // Função para mostrar resultado da estatística dos links
-function showLinkStats(linkResults) {
-  const statsResult = (linkResults).map((link) => {
+function showLinkStats(link) {
+  console.log(link);
+    return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
+  ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}`;
+}
+
+// Função para mostrar resultado da validação e estatística dos links 
+function showLinkValidationAndStatistics(link) {
+  console.log(link);
     return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
   ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}
   ${chalk.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
-  });
-  return statsResult.join('\n');
 }
-
 // Função para tratar
 mdLinks(filePath, options)
   .then((linkResults) => {
     if (options.validate === true && options.stats === true) {
-      console.log(showLinkValidation(linkResults));
-      console.log(showLinkStats(linkResults));
+      // console.log(showLinkValidation(linkResults));
+      console.log(showLinkValidationAndStatistics(linkResults));
     } else if (options.validate === true) {
       console.log(showLinkValidation(linkResults));
     } else if (options.stats === true) {
