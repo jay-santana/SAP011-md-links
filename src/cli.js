@@ -12,10 +12,11 @@ const options = {
 
 // Função para mostrar resultados dos textos e links extraídos
 function showLinkExtraction(linkResults) {
-  const extractedResults = linkResults.map((link) =>
-    `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
+  const extractedResults = linkResults.map((link) => {
+    return `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
   ${chalk.magenta('href:')} ${chalk.cyan(link.url)}
-  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)}`);
+  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)}`;
+  });
   return extractedResults.join('\n');
 }
 
@@ -40,7 +41,7 @@ function showLinkStats(linkResults) {
   return statsResult.join('\n');
 }
 
-// Função para tratar 
+// Função para tratar
 mdLinks(filePath, options)
   .then((linkResults) => {
     if (options.validate === true && options.stats === true) {

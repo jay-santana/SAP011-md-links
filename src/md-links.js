@@ -34,7 +34,7 @@ function mdLinks(filePath, options) {
         }
       })
       .catch((err) => {
-        return reject(new Error('Erro: O arquivo não pôde ser lido - ' + err.message));
+        return reject(new Error('Erro: O arquivo não pôde ser lido - ', err.message));
       });
   });
 }
