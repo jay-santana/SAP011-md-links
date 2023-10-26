@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
-const { mdLinks } = require('./md-links.js');
+const { mdLinks } = require('./md-links');
 
 const filePath = process.argv[2];
 console.log('caminho do arquivo', process.argv);
@@ -12,11 +12,9 @@ const options = {
 
 // Função para mostrar resultados dos textos e links extraídos
 function showLinkExtraction(linkResults) {
-  const extractedResults = linkResults.map((link) => {
-    return `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
+  const extractedResults = linkResults.map((link) => `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
   ${chalk.magenta('href:')} ${chalk.cyan(link.url)}
-  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)}`;
-  });
+  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)}`);
   return extractedResults.join('\n');
 }
 
@@ -33,24 +31,23 @@ function showLinkValidation(linkResults) {
 
 // Função para mostrar resultado da estatística dos links
 function showLinkStats(link) {
-  console.log(link);
-    return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
-  ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}`;
+  return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
+${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}`;
 }
 
-// Função para mostrar resultado da validação e estatística dos links 
-function showLinkValidationAndStatistics(link) {
+// Função para mostrar resultado da validação e estatística dos links
+function showLinksValidationAndStats(link) {
   console.log(link);
-    return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
-  ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}
-  ${chalk.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
+  return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
+${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}
+${chalk.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
 }
+
 // Função para tratar
 mdLinks(filePath, options)
   .then((linkResults) => {
     if (options.validate === true && options.stats === true) {
-      // console.log(showLinkValidation(linkResults));
-      console.log(showLinkValidationAndStatistics(linkResults));
+      console.log(showLinksValidationAndStats(linkResults));
     } else if (options.validate === true) {
       console.log(showLinkValidation(linkResults));
     } else if (options.stats === true) {

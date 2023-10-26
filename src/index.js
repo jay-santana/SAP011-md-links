@@ -13,17 +13,15 @@ function extractLinks(data, filePath) {
 // Função para validar links
 function validateLinks(getFileLinks) {
   return Promise.all(
-    getFileLinks.map((link) => {
-      return fetch(link.url)
-        .then((response) => ({
-          ...link,
-          valid: response.status >= 200 && response.status < 400,
-        }))
-        .catch(() => ({
-          ...link,
-          valid: false,
-        }));
-    }),
+    getFileLinks.map((link) => fetch(link.url)
+      .then((response) => ({
+        ...link,
+        valid: response.status >= 200 && response.status < 400,
+      }))
+      .catch(() => ({
+        ...link,
+        valid: false,
+      }))),
   );
 }
 
