@@ -1,6 +1,3 @@
-// const fs = require('fs');
-// const { extractLinks } = require('./index.js');
-
 // Função para extrair links
 function extractLinks(data, filePath) {
   const regex = /\[([^[\]]*?)\]\((https?:\/\/[^\s?#.].[^\s]*)\)/gm;
@@ -30,8 +27,16 @@ function validateLinks(getFileLinks) {
   );
 }
 
-function statsLinks() {
-
+// Função para estatísticas dos links
+function statsLinks(linkResults) {
+  const totalFileLinks = linkResults.length;
+  const uniqueLinks = [...new Set(linkResults.map((link) => link.url))].length;
+  const brokenLinks = linkResults.filter((link) => link.status !== 200).length;
+  return {
+    total: totalFileLinks,
+    unique: uniqueLinks,
+    broken: brokenLinks,
+  };
 }
 
 module.exports = { extractLinks, validateLinks, statsLinks };
