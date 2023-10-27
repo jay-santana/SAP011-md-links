@@ -16,11 +16,12 @@ function validateLinks(getFileLinks) {
     getFileLinks.map((link) => fetch(link.url)
       .then((response) => ({
         ...link,
-        valid: response.status >= 200 && response.status < 400,
+        statusCode: response.status,
+        ok: response.status >= 200 && response.status < 400,
       }))
       .catch(() => ({
         ...link,
-        valid: false,
+        ok: false,
       }))),
   );
 }

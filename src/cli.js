@@ -21,9 +21,11 @@ function showLinkExtraction(linkResults) {
 // Função para mostrar resultado dos links válidos e inválidos
 function showLinkValidation(linkResults) {
   const validationResults = linkResults.map((link) => {
-    const status = link.valid ? chalk.green('Válido') : chalk.red('Inválido');
+    const status = link.ok ? chalk.green('ok') : chalk.red('fail');
+    const statusCode = chalk.cyan(link.statusCode || 'N/A');
     return `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
   ${chalk.magenta('Status:')} ${status}
+  ${chalk.magenta('HTTP Status Code:')} ${statusCode}
   ${chalk.magenta('Arquivo:')} ${chalk.cyan(link.file)}`;
   });
   return validationResults.join('\n');
@@ -37,13 +39,12 @@ ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}`;
 
 // Função para mostrar resultado da validação e estatística dos links
 function showLinksValidationAndStats(link) {
-  console.log(link);
   return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
 ${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}
 ${chalk.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
 }
 
-// Função para tratar
+// Função para tratar opções de visualizações dos links
 mdLinks(filePath, options)
   .then((linkResults) => {
     if (options.validate === true && options.stats === true) {

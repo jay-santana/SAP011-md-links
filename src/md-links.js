@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { extractLinks, validateLinks, statsLinks } = require('./index');
 
-// Função para tratar links
+// Função para tratar opções de chamada dos links
 function mdLinks(filePath, options) {
   const fileExtension = path.extname(filePath);
   return new Promise((resolve, reject) => {
@@ -43,8 +43,5 @@ function mdLinks(filePath, options) {
     }
   });
 }
-
-// condicional para stats
-// condicional para validate e stats
 
 module.exports = { mdLinks };
