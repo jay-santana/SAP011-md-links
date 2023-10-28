@@ -19,7 +19,7 @@
   },
   "scripts": {
     "lint": "npx eslint .",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
