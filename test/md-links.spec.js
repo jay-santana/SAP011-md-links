@@ -105,13 +105,13 @@ describe('mdLinks', () => {
     });
   });
 
-  it('deve rejeitar se options.validate e options.stats forem verdadeiros e o arquivo não possui links', () => {
+  it('deve rejeitar se o arquivo não possui links e options.validate e options.stats forem verdadeiros', () => {
     // Simula a função extractLinks retornando um array vazio
     extractLinks.mockReturnValue([]);
     return expect(mdLinks('arquivo.md', { validate: true, stats: true })).rejects.toThrow('O arquivo não possui links');
   });
 
-  it('deve rejeitar com a mensagem correta se options.validate e options.stats forem verdadeiros e a validação falhar', () => {
+  it('deve rejeitar se a validação falhar e options.validate e options.stats forem verdadeiros', () => {
     const links = ['https://example.com'];
     extractLinks.mockReturnValue(links);
     // Simula a função validateLinks rejeitando a promessa com um erro
