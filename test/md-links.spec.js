@@ -1,5 +1,5 @@
-const { mdLinks } = require('../src/md-links');
 const fs = require('fs');
+const { mdLinks } = require('../src/md-links');
 const { extractLinks, validateLinks, statsLinks } = require('../src/index');
 
 jest.mock('fs', () => ({
@@ -8,22 +8,21 @@ jest.mock('fs', () => ({
   },
 }));
 
-jest.mock('../src/index', () => {
-  return {
-    extractLinks: jest.fn(),
-    validateLinks: jest.fn(),
-    statsLinks: jest.fn()
-  };
-});
+jest.mock('../src/index', () => ({
+  extractLinks: jest.fn(),
+  validateLinks: jest.fn(),
+  statsLinks: jest.fn(),
+}));
+
 describe('mdLinks', () => {
   let data; // Variável comum para armazenar o conteúdo do arquivo
   beforeEach(() => { // Define esses valores comuns antes de cada teste
     data = '[link](https://example.com)';
     fs.promises.readFile.mockResolvedValue(data);
   });
-  
+
   it('deve rejeitar se a extensão do arquivo não for .md', () => {
-    return expect(mdLinks('arquivo.txt', {})).rejects.toThrow('A extensão do arquivo não é .md');
+    expect(mdLinks('arquivo.txt', {})).rejects.toThrow('A extensão do arquivo não é .md');
   });
 
   it('deve resolver com os links se options.validate e options.stats forem falsos', () => {
@@ -45,15 +44,15 @@ describe('mdLinks', () => {
       text: 'Link de exemplo',
       url: link,
       statusCode: 200,
-      statusText: 'OK'
+      statusText: 'OK',
     })));
     return expect(mdLinks('arquivo.md', { validate: true })).resolves.toEqual([
       {
         text: 'Link de exemplo',
         url: 'https://example.com',
         statusCode: 200,
-        statusText: 'OK'
-      }
+        statusText: 'OK',
+      },
     ]);
   });
   it('deve rejeitar se o arquivo não possui links e options.validate for verdadeiro', () => {
@@ -61,7 +60,7 @@ describe('mdLinks', () => {
     extractLinks.mockReturnValue([]);
     return expect(mdLinks('arquivo.md', { validate: true })).rejects.toThrow('O arquivo não possui links');
   });
-  
+
   it('deve resolver com estatísticas se options.stats for verdadeiro', () => {
     extractLinks.mockReturnValue(['https://example.com', 'https://example2.com']);
     // Mock para simular a função statsLinks
@@ -88,7 +87,7 @@ describe('mdLinks', () => {
       text: 'Link de exemplo',
       url: link,
       statusCode: 200,
-      statusText: 'OK'
+      statusText: 'OK',
     }));
     validateLinks.mockResolvedValue(validatedLinks);
     // Mock para simular a função statsLinks

@@ -21,7 +21,7 @@ function mdLinks(filePath, options) {
                   const stats = statsLinks(validatedLinks);
                   resolve(stats);
                 })
-                .catch(() => reject(new Error(`Erro na validação de links`)));
+                .catch(() => reject(new Error('Erro na validação de links')));
             }
           } else if (options.validate === true) {
             if (links.length === 0) {
@@ -39,7 +39,7 @@ function mdLinks(filePath, options) {
             resolve(links);
           }
         })
-        .catch(() => reject(new Error(`O arquivo não pôde ser lido`)));
+        .catch(() => reject(new Error('O arquivo não pôde ser lido')));
     }
   });
 }

@@ -3,7 +3,6 @@ const chalk = require('chalk');
 const { mdLinks } = require('./md-links');
 
 const filePath = process.argv[2];
-console.log('caminho do arquivo', process.argv);
 
 const options = {
   validate: process.argv.includes('--validate'),
