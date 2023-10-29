@@ -14,7 +14,7 @@ describe('extractLinks', () => {
     const data = '[link](https://example.com)';
     const filePath = '/path/to/file.md';
     const expectedResults = [
-      { text: "link", url: "https://example.com", file: filePath },
+      { text: 'link', url: 'https://example.com', file: filePath },
     ];
     const result = extractLinks(data, filePath);
     expect(result).toEqual(expectedResults);
