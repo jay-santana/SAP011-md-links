@@ -36,18 +36,22 @@ ${chalk.hex('#FF8800')(index + 1)}. ${chalk.bold('Title:')} ${chalk.underline(li
 // Função para mostrar resultado da estatística dos links
 function showLinkStats(link) {
   return `
-${chalk.bold.underline('Estatísticas dos Links')}
+${chalk.bold('Estatísticas dos Links')}
+${chalk.bold('═══════════════════════')}
 ${chalk.bold.green('Total de Links:')} ${chalk.greenBright(link.total)}
-${chalk.bold.blue('Links Únicos:')} ${chalk.blueBright(link.unique)}`;
+${chalk.bold.blue('Links Únicos:')} ${chalk.blueBright(link.unique)}
+${chalk.bold('═══════════════════════')}`;
 }
 
 // Função para mostrar resultado da validação e estatística dos links
 function showLinksValidationAndStats(link) {
   return `
-${chalk.bold.underline('Estatísticas e validação dos Links')}
+${chalk.bold('Estatísticas e validação dos Links')}
+${chalk.bold('═══════════════════════════════════')}
 ${chalk.bold.green('Total de Links:')} ${chalk.greenBright(link.total)}
 ${chalk.bold.blue('Links Únicos:')} ${chalk.blueBright(link.unique)}
-${chalk.bold.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
+${chalk.bold.red('Links Quebrados:')} ${chalk.redBright(link.broken)}
+${chalk.bold('═══════════════════════════════════')}`;
 }
 
 // Função para tratar opções de visualizações dos links

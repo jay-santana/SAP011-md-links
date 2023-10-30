@@ -1,6 +1,5 @@
 const { extractLinks, validateLinks, statsLinks } = require('../src/index');
 
-global.fetch = jest.fn();
 /* eslint-disable no-extend-native */
 describe('extractLinks', () => {
   it('deve extrair os links corretamente', () => {
@@ -30,6 +29,7 @@ describe('validateLinks', () => {
     { url: 'http://example.com/page2' },
   ];
   it('deve validar links corretamente', () => {
+    global.fetch = jest.fn();
     // Mock das respostas do fetch
     fetch.mockResolvedValue({ status: 200 });
     return validateLinks(links).then((result) => {

@@ -30,7 +30,7 @@ function validateLinks(getFileLinks) {
 function statsLinks(allLinks) {
   const totalFileLinks = allLinks.length;
   const uniqueLinks = [...new Set(allLinks.map((link) => link.url))].length;
-  const brokenLinks = allLinks.filter((link) => link.status !== 200).length;
+  const brokenLinks = allLinks.filter((link) => link.statusCode !== 200).length;
   return {
     total: totalFileLinks,
     unique: uniqueLinks,
