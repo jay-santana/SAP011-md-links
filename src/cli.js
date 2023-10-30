@@ -11,36 +11,43 @@ const options = {
 
 // Função para mostrar resultados dos textos e links extraídos
 function showLinkExtraction(linkResults) {
-  const extractedResults = linkResults.map((link) => `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
-  ${chalk.magenta('href:')} ${chalk.cyan(link.url)}
-  ${chalk.magenta('Arquivo')} ${chalk.cyan(link.file)}`);
+  const extractedResults = linkResults.map((link, index) => `
+${chalk.hex('#FF8800')(index + 1)}. ${chalk.bold('Title:')} ${chalk.underline(link.text)}
+   ${chalk.bold('URL:')} ${chalk.blue(link.url)}
+   ${chalk.bold('File:')} ${chalk.green(link.file)}`);
   return extractedResults.join('\n');
 }
 
 // Função para mostrar resultado dos links válidos e inválidos
 function showLinkValidation(linkResults) {
-  const validationResults = linkResults.map((link) => {
-    const status = link.ok ? chalk.green('ok') : chalk.red('fail');
-    const statusCode = chalk.cyan(link.statusCode || 'N/A');
-    return `\u2022 ${chalk.green('Texto do link:')} ${chalk.magenta(link.text)}
-  ${chalk.magenta('Status:')} ${status}
-  ${chalk.magenta('HTTP Status Code:')} ${statusCode}
-  ${chalk.magenta('Arquivo:')} ${chalk.cyan(link.file)}`;
+  const validationResults = linkResults.map((link, index) => {
+    const status = link.ok ? chalk.green('✔') : chalk.red('✘');
+    const statusText = link.ok ? chalk.green('Status: OK') : chalk.red('Status: Failed');
+    const statusCode = chalk.blue(link.statusCode || 'N/A');
+    return `
+${chalk.hex('#FF8800')(index + 1)}. ${chalk.bold('Title:')} ${chalk.underline(link.text)}
+   ${statusText} ${status}
+   ${chalk.bold('HTTP Status Code:')} ${statusCode}
+   ${chalk.bold('File:')} ${chalk.blue(link.file)}`;
   });
   return validationResults.join('\n');
 }
 
 // Função para mostrar resultado da estatística dos links
 function showLinkStats(link) {
-  return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
-${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}`;
+  return `
+${chalk.bold.underline('Estatísticas dos Links')}
+${chalk.bold.green('Total de Links:')} ${chalk.greenBright(link.total)}
+${chalk.bold.blue('Links Únicos:')} ${chalk.blueBright(link.unique)}`;
 }
 
 // Função para mostrar resultado da validação e estatística dos links
 function showLinksValidationAndStats(link) {
-  return `${chalk.green('Total de Links:')} ${chalk.magenta(link.total)}
-${chalk.magenta('Links Únicos:')} ${chalk.cyan(link.unique)}
-${chalk.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
+  return `
+${chalk.bold.underline('Estatísticas e validação dos Links')}
+${chalk.bold.green('Total de Links:')} ${chalk.greenBright(link.total)}
+${chalk.bold.blue('Links Únicos:')} ${chalk.blueBright(link.unique)}
+${chalk.bold.red('Links Quebrados:')} ${chalk.red(link.broken)}`;
 }
 
 // Função para tratar opções de visualizações dos links
