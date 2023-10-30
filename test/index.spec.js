@@ -58,10 +58,10 @@ describe('validateLinks', () => {
 describe('statsLinks', () => {
   const Set = jest.fn();
   const exampleLinks = [
-    { url: 'https://example.com/page1', status: 200 },
-    { url: 'https://example.com/page2', status: 404 },
-    { url: 'https://example.com/page1', status: 200 },
-    { url: 'https://example.com/page3', status: 200 },
+    { url: 'https://example.com/page1', statusCode: 200 },
+    { url: 'https://example.com/page2', statusCode: 404 },
+    { url: 'https://example.com/page1', statusCode: 200 },
+    { url: 'https://example.com/page3', statusCode: 200 },
   ];
   it('deve calcular as estatísticas corretamente', () => {
     // Mock para contar a quantidade de elementos únicos
