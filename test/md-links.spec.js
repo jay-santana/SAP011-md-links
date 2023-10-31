@@ -30,6 +30,12 @@ describe('mdLinks', () => {
     return expect(mdLinks('arquivo.md', {})).resolves.toEqual(['https://example.com']);
   });
 
+  it('deve rejeitar se o arquivo não possui links', () => {
+    // Crie um arquivo de teste vazio
+    extractLinks.mockReturnValue([]);
+    return expect(mdLinks('arquivo.md', { validate: false, stats: false })).rejects.toThrow('O arquivo não possui links');
+  });
+
   it('deve rejeitar se o arquivo não puder ser lido', () => {
     // Simula um erro ao ler o arquivo
     fs.promises.readFile.mockRejectedValue(new Error('Erro ao ler o arquivo'));
@@ -42,14 +48,14 @@ describe('mdLinks', () => {
     // Mock para simular a validação dos links
     validateLinks.mockResolvedValue(links.map((link) => ({
       text: 'Link de exemplo',
-      url: link,
+      href: link,
       statusCode: 200,
       statusText: 'OK',
     })));
     return expect(mdLinks('arquivo.md', { validate: true })).resolves.toEqual([
       {
         text: 'Link de exemplo',
-        url: 'https://example.com',
+        href: 'https://example.com',
         statusCode: 200,
         statusText: 'OK',
       },
@@ -85,7 +91,7 @@ describe('mdLinks', () => {
     // Mock para simular a validação dos links
     const validatedLinks = links.map((link) => ({
       text: 'Link de exemplo',
-      url: link,
+      href: link,
       statusCode: 200,
       statusText: 'OK',
     }));

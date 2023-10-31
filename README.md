@@ -4,14 +4,14 @@
 
 * [1. Prefácio](#1-prefácio)
 * [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação mínimos do projeto](#5-criterios-de-aceitação-mínimos-do-projeto)
-* [6. Entregáveis](#6-entregáveis)
-* [7. Hacker edition](#7-hacker-edition)
-* [8. Guias, dicas e leituras complementares](#8-guias-dicas-e-leituras-complementares)
-* [9. Checklist](#9-checklist)
-* [10. Dividindo o problema - babies steps](#10-dividindo-o-problema)
+* [3. Fluxograma ](#3-fluxograma)
+* [4. Recursos Principais](#4-recursos-principais)
+* [5. Guia Prático de Instalação e Uso](#5-guia-prático-de-instalação-e-uso)
+* [6. Testes Unitários](#6-testes-unitários)
+* [7. Critérios Minímos de Aceitação](#7-criterios-minimos-de-aceitação)
+* [8. Especificações Técnicas](#8-especificações-técnicas)
+* [9. Implementações futuras](#9-implementações-futuras)
+* [10. Desenvolvedoras](#10-desenvolvedora)
 
 ***
 

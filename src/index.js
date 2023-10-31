@@ -4,7 +4,7 @@ function extractLinks(data, filePath) {
   const getFileLinks = [...data.matchAll(regex)];
   const linkResults = getFileLinks.map((link) => ({
     text: link[1],
-    url: link[2],
+    href: link[2],
     file: filePath,
   }));
   return linkResults;
@@ -13,7 +13,7 @@ function extractLinks(data, filePath) {
 // Função para validar links
 function validateLinks(getFileLinks) {
   return Promise.all(
-    getFileLinks.map((link) => fetch(link.url)
+    getFileLinks.map((link) => fetch(link.href)
       .then((response) => ({
         ...link,
         statusCode: response.status,
@@ -29,7 +29,7 @@ function validateLinks(getFileLinks) {
 // Função para estatísticas dos links
 function statsLinks(allLinks) {
   const totalFileLinks = allLinks.length;
-  const uniqueLinks = [...new Set(allLinks.map((link) => link.url))].length;
+  const uniqueLinks = [...new Set(allLinks.map((link) => link.href))].length;
   const brokenLinks = allLinks.filter((link) => link.statusCode !== 200).length;
   return {
     total: totalFileLinks,

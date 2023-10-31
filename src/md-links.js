@@ -35,6 +35,8 @@ function mdLinks(filePath, options) {
             } else {
               resolve(statsLinks(links));
             }
+          } else if (links.length === 0) {
+            reject(new Error('O arquivo não possui links'));
           } else {
             resolve(links);
           }

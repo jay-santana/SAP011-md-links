@@ -13,7 +13,7 @@ const options = {
 function showLinkExtraction(linkResults) {
   const extractedResults = linkResults.map((link, index) => `
 ${chalk.hex('#FF8800')(index + 1)}. ${chalk.bold('Title:')} ${chalk.underline(link.text)}
-   ${chalk.bold('URL:')} ${chalk.blue(link.url)}
+   ${chalk.bold('Href:')} ${chalk.blue(link.href)}
    ${chalk.bold('File:')} ${chalk.green(link.file)}`);
   return extractedResults.join('\n');
 }
@@ -69,13 +69,13 @@ mdLinks(filePath, options)
   })
   .catch((error) => {
     if (options.stats === true && options.validate === true) {
-      console.error('Ocorreu um erro ao calcular estatísticas e validar links:', error);
+      console.error(chalk.red('✘ Ocorreu um erro ao calcular estatísticas e validar links -', error));
     } else if (options.stats === true) {
-      console.error('Ocorreu um erro ao calcular estatísticas dos links:', error);
+      console.error(chalk.red('✘ Ocorreu um erro ao calcular estatísticas dos links -', error));
     } else if (options.validate === true) {
-      console.error('Ocorreu um erro ao validar links:', error);
+      console.error(chalk.red('✘ Ocorreu um erro ao validar links -', error));
     } else {
-      console.error('Ocorreu um erro ao extrair links:', error);
+      console.error(chalk.red('✘ Ocorreu um erro ao extrair links -', error));
     }
   });
 

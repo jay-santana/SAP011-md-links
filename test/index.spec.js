@@ -13,7 +13,7 @@ describe('extractLinks', () => {
     const data = '[link](https://example.com)';
     const filePath = '/path/to/file.md';
     const expectedResults = [
-      { text: 'link', url: 'https://example.com', file: filePath },
+      { text: 'link', href: 'https://example.com', file: filePath },
     ];
     const result = extractLinks(data, filePath);
     expect(result).toEqual(expectedResults);
@@ -25,8 +25,8 @@ describe('extractLinks', () => {
 
 describe('validateLinks', () => {
   const links = [
-    { url: 'http://example.com/page1' },
-    { url: 'http://example.com/page2' },
+    { href: 'http://example.com/page1' },
+    { href: 'http://example.com/page2' },
   ];
   it('deve validar links corretamente', () => {
     global.fetch = jest.fn();
@@ -35,10 +35,10 @@ describe('validateLinks', () => {
     return validateLinks(links).then((result) => {
       // Verifica o resultado da função
       expect(result).toEqual([
-        { url: 'http://example.com/page1', statusCode: 200, ok: true },
-        { url: 'http://example.com/page2', statusCode: 200, ok: true },
+        { href: 'http://example.com/page1', statusCode: 200, ok: true },
+        { href: 'http://example.com/page2', statusCode: 200, ok: true },
       ]);
-      // Verifica se o fetch foi chamado com os URLs corretos
+      // Verifica se o fetch foi chamado com os hrefs corretos
       expect(fetch).toHaveBeenCalledWith('http://example.com/page1');
       expect(fetch).toHaveBeenCalledWith('http://example.com/page2');
     });
@@ -48,8 +48,8 @@ describe('validateLinks', () => {
     fetch.mockRejectedValue(new Error('Erro na requisição'));
     return validateLinks(links).then((result) => {
       expect(result).toEqual([
-        { url: 'http://example.com/page1', ok: false },
-        { url: 'http://example.com/page2', ok: false },
+        { href: 'http://example.com/page1', ok: false },
+        { href: 'http://example.com/page2', ok: false },
       ]);
     });
   });
@@ -58,10 +58,10 @@ describe('validateLinks', () => {
 describe('statsLinks', () => {
   const Set = jest.fn();
   const exampleLinks = [
-    { url: 'https://example.com/page1', statusCode: 200 },
-    { url: 'https://example.com/page2', statusCode: 404 },
-    { url: 'https://example.com/page1', statusCode: 200 },
-    { url: 'https://example.com/page3', statusCode: 200 },
+    { href: 'https://example.com/page1', statusCode: 200 },
+    { href: 'https://example.com/page2', statusCode: 404 },
+    { href: 'https://example.com/page1', statusCode: 200 },
+    { href: 'https://example.com/page3', statusCode: 200 },
   ];
   it('deve calcular as estatísticas corretamente', () => {
     // Mock para contar a quantidade de elementos únicos
