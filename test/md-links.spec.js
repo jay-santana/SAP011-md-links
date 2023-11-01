@@ -61,6 +61,7 @@ describe('mdLinks', () => {
       },
     ]);
   });
+
   it('deve rejeitar se o arquivo não possui links e options.validate for verdadeiro', () => {
     // Simula a função extractLinks retornando um array vazio
     extractLinks.mockReturnValue([]);
@@ -79,6 +80,7 @@ describe('mdLinks', () => {
       unique: 2,
     });
   });
+  
   it('deve rejeitar se o arquivo não possui links e options.stats for verdadeiro', () => {
     // Mock para simular a função extractLinks retornando um array vazio
     extractLinks.mockReturnValue([]);

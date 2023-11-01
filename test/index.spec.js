@@ -32,7 +32,7 @@ describe('validateLinks', () => {
     global.fetch = jest.fn();
     // Mock das respostas do fetch
     fetch.mockResolvedValue({ status: 200 });
-    return validateLinks(links).then((result) => {
+    validateLinks(links).then((result) => {
       // Verifica o resultado da função
       expect(result).toEqual([
         { href: 'http://example.com/page1', statusCode: 200, ok: true },
@@ -43,6 +43,7 @@ describe('validateLinks', () => {
       expect(fetch).toHaveBeenCalledWith('http://example.com/page2');
     });
   });
+
   it('deve lidar com erros de fetch', () => {
     // Mock do fetch para simular erro
     fetch.mockRejectedValue(new Error('Erro na requisição'));
