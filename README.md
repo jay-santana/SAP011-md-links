@@ -46,29 +46,29 @@ inserir imagem aqui!
 
 ## 3. Recursos Principais
 
-* #### Leitura de Arquivos Markdown:
+#### Leitura de Arquivos Markdown:
 
-O programa recebe como entrada arquivos no formato `Markdown (.md)` a partir da linha de comando.
+* O programa recebe como entrada arquivos no formato `Markdown (.md)` a partir da linha de comando.
 
-* #### Extração de Links:
+#### Extração de Links:
 
-- Extrai todos os _links_ (URLs) presentes nos arquivos `Markdown` fornecidos como entrada.
+* Extrai todos os _links_ (URLs) presentes nos arquivos `Markdown` fornecidos como entrada.
 
-* #### Validação dos Links:
+#### Validação dos Links:
 
-- Opção `--validate` que verifica o status HTTP de cada _link_ extraído e exibe o HTTP status code associado a cada um.
+Opção `--validate` que verifica o status HTTP de cada _link_ extraído e exibe o HTTP status code associado a cada um.
 
-* #### Estatísticas de Links:
+#### Estatísticas de Links:
 
-- Opção `--stats` para fornecer estatísticas sobre os _links_ presentes nos arquivos, incluindo o total de _links_ e a contagem de _links_ únicos (sem duplicatas).
+* Opção `--stats` para fornecer estatísticas sobre os _links_ presentes nos arquivos, incluindo o total de _links_ e a contagem de _links_ únicos (sem duplicatas).
 
-* #### Combinação de Validação e Estatísticas:
+#### Combinação de Validação e Estatísticas:
 
-- Opções `--validate` e `--stats` em conjunto, ao usar essa opção o programa gera estatísticas detalhadas, incluindo o número de _links_ quebrados, encontrados durante a validação, o total de _links_ e a contagem de _links_ únicos (sem duplicatas) dos dados estatísticos.
+* Opções `--validate` e `--stats` em conjunto, ao usar essa opção o programa gera estatísticas detalhadas, incluindo o número de _links_ quebrados, encontrados durante a validação, o total de _links_ e a contagem de _links_ únicos (sem duplicatas) dos dados estatísticos.
 
-* #### Mensagens de Erro:
+#### Mensagens de Erro:
 
-- Implementação de mensagens de erro para lidar com os erros de entrada ou opções inválidas.
+* Implementação de mensagens de erro para lidar com os erros de entrada ou opções inválidas.
 
 ## 4. Guia Prático de Instalação e Uso
 
