@@ -92,7 +92,7 @@ Para leitura e extração dos _links_ de um arquivo `Markdown ('.md')`, execute 
 md-links <caminho-do-arquivo>
 ```
 <p>
-<img src="./assets/leitura-de-arquivo-e-extracao-de-links-md-links .png" alt="md-links <caminho-do-arquivo>" width="600"/>
+<img src="./assets/leitura-de-arquivo-e-extracao-de-links-md-links .png" alt="md-links <caminho-do-arquivo>"/>
 </p>
 
 **Validação de links**
@@ -103,7 +103,7 @@ Para validar os _links_ de um arquivo `Markdown ('.md')`, execute o seguinte com
 md-links <caminho-do-arquivo> --validate
 ```
 <p>
-<img src="./assets/validacao-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --validate" width="600"/>
+<img src="./assets/validacao-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --validate">
 </p>
 
 **Estatísticas de links**
@@ -114,7 +114,7 @@ Para gerar dados estatísticos de um arquivo `Markdown ('.md')`, execute o segui
 md-links <caminho-do-arquivo> --stats
 ```
 <p>
-<img src="./assets/estatistica-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --stats" width="600"/>
+<img src="./assets/estatistica-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --stats">
 </p>
 
 **Validação e Estatísticas de links**
@@ -125,7 +125,7 @@ Para validar os _links_ e gerar dados estatísticas de um arquivo `Markdown ('.m
 md-links <caminho-do-arquivo> --validate --stats
 ```
 <p>
-<img src="./assets/estatistica-e-validacao-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --validate --stats" width="600"/>
+<img src="./assets/estatistica-e-validacao-dos-links-md-links.png" alt="md-links <caminho-do-arquivo> --validate --stats">
 </p>
 
 **Mensagens de erro**
@@ -134,32 +134,32 @@ A ferramenta é capaz de lidar com erros, por exemplo, mensagens de erro podem s
 
 * Quando a extensão do arquivo não for `Markdown ('.md')`
 <p>
-<img src="./assets/erro-extensão-do-arquivo-não-é-md-md-links.png" alt="Erro: A extensão do arquivo não é .md" width="600"/>
+<img src="./assets/erro-extensão-do-arquivo-não-é-md-md-links.png" alt="Erro: A extensão do arquivo não é .md">
 </p>
 
 * Quando o arquivo `Markdown ('.md')` não puder ser lido:
 <p>
-<img src="./assets/erro-arquivo-não-pôde-ser-lido-md-links.png" alt="Erro: O arquivo não pôde ser lido" width="600"/>
+<img src="./assets/erro-arquivo-não-pôde-ser-lido-md-links.png" alt="Erro: O arquivo não pôde ser lido">
 </p>
 
 * Quando o arquivo `Markdown ('.md')` estiver vazio e não possuir _links_ no seu conteúdo:
 <p>
-<img src="./assets/erro-extração-dos-links-md-links.png" alt="Erro ao extrair links" width="600"/>
+<img src="./assets/erro-extração-dos-links-md-links.png" alt="Erro ao extrair links">
 </p>
 
 * Quando a validação dos _links_ do arquivo `Markdown ('.md')` falhar:
 <p>
-<img src="./assets/erro-validação-dos-links-md-links.png" alt="Erro ao validar links" width="600"/>
+<img src="./assets/erro-validação-dos-links-md-links.png" alt="Erro ao validar links">
 </p>
 
 * Quando a estatística dos _links_ do arquivo `Markdown ('.md')` falhar:
 <p>
-<img src="./assets/erro-cálculo-estatístico-md-links.png" alt="Erro ao calcular estatísticas dos links" width="600"/>
+<img src="./assets/erro-cálculo-estatístico-md-links.png" alt="Erro ao calcular estatísticas dos links">
 </p>
 
 * Quando a validação e estatística dos _links_ do arquivo `Markdown ('.md')` falhar:
 <p>
-<img src="./assets/erro-cálculo-estatístico-e-validação-dos-links-md-links.png" alt="Erro ao calcular estatísticas e validar links" width="600"/>
+<img src="./assets/erro-cálculo-estatístico-e-validação-dos-links-md-links.png" alt="Erro ao calcular estatísticas e validar links">
 </p>
 
 
@@ -170,7 +170,7 @@ Para este projeto foram desenvolvidos testes unitários utilizando a biblioteca 
 Os testes unitários realizados obtiveram uma cobertura de 100% de statements (sentenças), functions (funções), lines (linhas), e branches (ramos) dos arquivos index.js e md-links.js.
 
 <p>
-<img src="./assets/testes-unitarios-md-links.png" width="600" alt="Testes Unitários"/>
+<img src="./assets/testes-unitarios-md-links.png" alt="Testes Unitários"/>
 </p>
 
 
