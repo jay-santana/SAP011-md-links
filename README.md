@@ -44,7 +44,7 @@ o fluxograma é uma ferramenta essencial que nos ajuda a planejar, acompanhar e 
 #### Fluxograma MD-Links
 
 <div align="center">
- <img src="./assets/fluxograma-md-links.png" width="600" alt="Fluxograma" /><br>
+ <img src="./assets/fluxograma-md-links.png" width="800" alt="Fluxograma" /><br>
   Fluxograma MD-Links.
 </div>
 
